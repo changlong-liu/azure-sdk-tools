@@ -6,12 +6,12 @@ The Mock Service Host works as a mock server for ARM FrontDoor Service. It suppo
 2. Generate a response based on Swagger and return it to the client.
 3. Generate Swagger examples based on the request and response.
 
-![overall.png](./doc/pic/overall.png)
+![overall.png](tools/mock-service-host/doc/pic/overall.png)
 
 ## Azure CLI under the Mock Service Host
 
 All CLI commands for Azure Management plane work with the Mock Service Host, below is a sample:
-![cli-sample.png](./doc/pic/cli-sample.png)
+![cli-sample.png](tools/mock-service-host/doc/pic/cli-sample.png)
 
 # The Behaviour of Mock Service Host
 
@@ -125,7 +125,7 @@ After the virtual server is started in local computer, below section describe ho
 ### 2.1 Activate the Python Environment
 
 Run `'az --version'` to get which python environment is used in your computer, for instance:
-![az-version.png](./doc/pic/az-version.png)
+![az-version.png](tools/mock-service-host/doc/pic/az-version.png)
 
 According to above output, you know the CLI is using Python virtual environment c:\ZZ\projects\codegen\venv_mock, saying it's YOUR_VENV.
 Then you need to activate this venv:
