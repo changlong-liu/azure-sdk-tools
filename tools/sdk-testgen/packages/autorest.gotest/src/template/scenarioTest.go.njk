@@ -10,7 +10,6 @@ package {{packageName}}_scenario
 var (
 	ctx            context.Context
 	cred           azcore.TokenCredential
-	con            *arm.Connection
 	err            error
 {%- if scope.toLowerCase() == 'resourcegroup'%}
 	resourceGroup	*armresources.ResourceGroup
