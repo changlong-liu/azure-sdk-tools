@@ -86,6 +86,10 @@ stages:
           steps:
           - template: ../../eng/pipelines/templates/steps/sdk-testgen-set-env.yaml
           - script: |
+              rush rebuild -v
+            displayName: "Build all packages"
+            workingDirectory: $(Build.SourcesDirectory)/tools/sdk-testgen
+          - script: |
               rush publish --publish --pack --include-all
             displayName: "Pack packages"
             workingDirectory: $(Build.SourcesDirectory)/tools/sdk-testgen
