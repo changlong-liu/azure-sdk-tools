@@ -320,9 +320,11 @@ export class Coordinator {
         let firstloop = true
         while (uriPath.length > 0) {
             if (firstloop || uriPath.length % 2 === 1) {
-                const testingUrl = `${req.protocol}://${req.headers?.host}${uriPath.join(
-                    '/'
-                )}?${query}`
+                let hostAndPort = req.headers?.host as string
+                if (hostAndPort.split(':').length > 0) {
+                    hostAndPort = `${hostAndPort}:${req.localPort}`
+                }
+                const testingUrl = `${req.protocol}://${hostAndPort}${uriPath.join('/')}?${query}`
                 try {
                     const validationRequest = this.liveValidator.parseValidationRequest(
                         testingUrl,
