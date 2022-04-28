@@ -107,3 +107,5 @@ lib
 # Project
 **/test/**/*.yaml
 **/test/**/*.json
+
+*.yaml

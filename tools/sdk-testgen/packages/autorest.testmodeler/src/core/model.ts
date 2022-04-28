@@ -29,8 +29,8 @@ export enum ExtensionName {
     xMsExamples = 'x-ms-examples',
 }
 export interface ExampleExtensionResponse {
-    body: any;
-    headers: Record<string, any>;
+    body?: any;
+    headers?: Record<string, any>;
 }
 export interface ExampleExtension {
     parameters?: Record<string, any>;
@@ -448,14 +448,9 @@ export class TestCodeModeler {
                     session,
                     {
                         parameters: step.requestParameters,
-                        responses: {
-                            [step.statusCode]: {
-                                body: step.expectedResponse,
-                                headers: {},
-                            },
-                        },
+                        responses: step.responseExpected,
                     },
-                    step.exampleName,
+                    step.exampleFile,
                     operation,
                     operationGroup,
                 );
@@ -554,7 +549,7 @@ export class TestCodeModeler {
             const stepModel = step as StepRestCallModel;
             this.initiateRestCall(session, stepModel);
             if (codeModelRestcallOnly && !stepModel.exampleModel) {
-                throw new Error(`Can't find operationId ${step.operationId}[step ${step.exampleName}] in codeModel!`);
+                throw new Error(`Can't find operationId ${step.operationId}[step ${step.step}] in codeModel!`);
             }
         } else if (step.type === OavStepType.armTemplate) {
             testDef.useArmTemplate = true;
@@ -598,18 +593,19 @@ export class TestCodeModeler {
     }
 
     public async loadAvailableTestResources(session: Session<TestCodeModel>, fileRoot: string) {
-        const scenariosFolders = ['scenarios', 'test-scenarios'];
+        const scenariosFolders = ['scenarios' /*, 'test-scenarios'*/];
         const codemodelRestCallOnly = this.testConfig.getValue(Config.scenarioCodeModelRestCallOnly);
         for (const apiFolder of this.testConfig.getInputFileFolders()) {
             for (const scenariosFolder of scenariosFolders) {
                 const scenarioPath = path.join(fileRoot, apiFolder, scenariosFolder);
                 // currently loadAvailableTestResources only support scenario scanning from local file system
-                if (fs.existsSync(scenarioPath) && fs.lstatSync(scenarioPath).isDirectory()) {
-                    for (const scenarioFile of fs.readdirSync(scenarioPath)) {
+                if ((fs.existsSync(scenarioPath) && fs.lstatSync(scenarioPath).isDirectory()) || true) {
+                    // for (const scenarioFile of fs.readdirSync(scenarioPath)) {
+                    for (const scenarioFile of ['Spring.yaml']) {
                         if (!scenarioFile.endsWith('.yaml') && !scenarioFile.endsWith('.yml')) {
                             continue;
                         }
-                        const scenarioPathName = path.join(apiFolder, scenariosFolder, scenarioFile);
+                        var scenarioPathName = path.join(apiFolder, scenariosFolder, scenarioFile);
                         try {
                             const loader = ApiScenarioLoader.create({
                                 useJsonParser: false,
@@ -617,6 +613,7 @@ export class TestCodeModeler {
                                 fileRoot: fileRoot,
                                 swaggerFilePaths: this.testConfig.getValue(Config.inputFile),
                             });
+                            scenarioPathName = scenarioPathName.split('\\').join('/');
                             const testDef = (await loader.load(scenarioPathName)) as TestDefinitionModel;
 
                             this.initiateTestDefinition(session, testDef, codemodelRestCallOnly);

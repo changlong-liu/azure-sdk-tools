@@ -9407,10 +9407,7 @@ operationGroups:
                         apiType: SQL
                         databaseName: db1
                       createdAt: '2019-01-01T12:34:56.000Z'
-                      generatedProperties: |-
-                        spring.datasource.url=jdbc:mysql://localhost:3306/test
-                        spring.datasource.username=root
-                        spring.datasource.password=1****6
+                      generatedProperties: <connection-string>
                       resourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1
                       resourceName: my-cosmosdb-1
                       resourceType: Microsoft.DocumentDB
@@ -9600,10 +9597,7 @@ operationGroups:
                         apiType: SQL
                         databaseName: db1
                       createdAt: '2019-01-01T12:34:56.000Z'
-                      generatedProperties: |-
-                        spring.datasource.url=jdbc:mysql://localhost:3306/test
-                        spring.datasource.username=root
-                        spring.datasource.password=1****6
+                      generatedProperties: <connection-string>
                       resourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1
                       resourceName: my-cosmosdb-1
                       resourceType: Microsoft.DocumentDB
@@ -9618,10 +9612,7 @@ operationGroups:
                         apiType: SQL
                         databaseName: db1
                       createdAt: '2019-01-01T12:34:56.000Z'
-                      generatedProperties: |-
-                        spring.datasource.url=jdbc:mysql://localhost:3306/test
-                        spring.datasource.username=root
-                        spring.datasource.password=1****6
+                      generatedProperties: <connection-string>
                       resourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1
                       resourceName: my-cosmosdb-1
                       resourceType: Microsoft.DocumentDB
@@ -9636,10 +9627,7 @@ operationGroups:
                         apiType: SQL
                         databaseName: db1
                       createdAt: '2019-01-01T12:34:56.000Z'
-                      generatedProperties: |-
-                        spring.datasource.url=jdbc:mysql://localhost:3306/test
-                        spring.datasource.username=root
-                        spring.datasource.password=1****6
+                      generatedProperties: <connection-string>
                       resourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1
                       resourceName: my-cosmosdb-1
                       resourceType: Microsoft.DocumentDB
@@ -9962,10 +9950,7 @@ operationGroups:
                         apiType: SQL
                         databaseName: db1
                       createdAt: '2019-01-01T12:34:56.000Z'
-                      generatedProperties: |-
-                        spring.datasource.url=jdbc:mysql://localhost:3306/test
-                        spring.datasource.username=root
-                        spring.datasource.password=1****6
+                      generatedProperties: <connection-string>
                       resourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1
                       resourceName: my-cosmosdb-1
                       resourceType: Microsoft.DocumentDB
@@ -9980,10 +9965,7 @@ operationGroups:
                         apiType: SQL
                         databaseName: db1
                       createdAt: '2019-01-01T12:34:56.000Z'
-                      generatedProperties: |-
-                        spring.datasource.url=jdbc:mysql://localhost:3306/test
-                        spring.datasource.username=root
-                        spring.datasource.password=1****6
+                      generatedProperties: <connection-string>
                       resourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1
                       resourceName: my-cosmosdb-1
                       resourceType: Microsoft.DocumentDB
@@ -10118,10 +10100,7 @@ operationGroups:
                             apiType: SQL
                             databaseName: db1
                           createdAt: '2019-01-01T12:34:56.000Z'
-                          generatedProperties: |-
-                            spring.datasource.url=jdbc:mysql://localhost:3306/test
-                            spring.datasource.username=root
-                            spring.datasource.password=1****6
+                          generatedProperties: <connection-string>
                           resourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1
                           resourceName: my-cosmosdb-1
                           resourceType: Microsoft.DocumentDB
@@ -11865,12 +11844,12 @@ operationGroups:
                       artifactSelector: sub-module-1
                       relativePath: resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc
                       version: '1.0'
+                  sku:
+                    name: S0
+                    capacity: 1
+                    tier: Standard
                 resourceGroupName: myResourceGroup
                 serviceName: myservice
-                sku:
-                  name: S0
-                  capacity: 1
-                  tier: Standard
                 subscriptionId: 00000000-0000-0000-0000-000000000000
               responses:
                 '200':
